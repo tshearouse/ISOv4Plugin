@@ -5,6 +5,7 @@
 using AgGateway.ADAPT.ISOv4Plugin.ISOModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Xml;
 using System.Xml.XPath;
@@ -47,7 +48,7 @@ namespace AgGateway.ADAPT.ISOv4Plugin.ExtensionMethods
         {
             string value = GetXmlNodeValue(xmlNode, xPath);
             int outValue;
-            if (int.TryParse(value, out outValue))
+            if (int.TryParse(value, NumberStyles.Integer, NumberFormatInfo.InvariantInfo, out outValue))
             {
                 return outValue;
             }
@@ -81,7 +82,7 @@ namespace AgGateway.ADAPT.ISOv4Plugin.ExtensionMethods
         {
             string value = GetXmlNodeValue(xmlNode, xPath);
             uint outValue;
-            if (UInt32.TryParse(value, out outValue))
+            if (UInt32.TryParse(value, NumberStyles.Integer, NumberFormatInfo.InvariantInfo, out outValue))
             {
                 return outValue;
             }
@@ -95,7 +96,7 @@ namespace AgGateway.ADAPT.ISOv4Plugin.ExtensionMethods
         {
             string value = GetXmlNodeValue(xmlNode, xPath);
             uint outValue;
-            if (UInt32.TryParse(value, out outValue))
+            if (UInt32.TryParse(value, NumberStyles.Integer, NumberFormatInfo.InvariantInfo, out outValue))
             {
                 return outValue;
             }
@@ -123,7 +124,7 @@ namespace AgGateway.ADAPT.ISOv4Plugin.ExtensionMethods
         {
             string value = GetXmlNodeValue(xmlNode, xPath);
             byte outValue;
-            if (byte.TryParse(value, out outValue))
+            if (byte.TryParse(value, NumberStyles.Integer, NumberFormatInfo.InvariantInfo, out outValue))
             {
                 return outValue;
             }
@@ -150,7 +151,7 @@ namespace AgGateway.ADAPT.ISOv4Plugin.ExtensionMethods
         {
             string value = GetXmlNodeValue(xmlNode, xPath);
             double outValue;
-            if (double.TryParse(value, out outValue))
+            if (double.TryParse(value, NumberStyles.Float | NumberStyles.AllowThousands, NumberFormatInfo.InvariantInfo, out outValue))
             {
                 return outValue;
             }
@@ -177,7 +178,7 @@ namespace AgGateway.ADAPT.ISOv4Plugin.ExtensionMethods
         {
             string value = GetXmlNodeValue(xmlNode, xPath);
             decimal outValue;
-            if (decimal.TryParse(value, out outValue))
+            if (decimal.TryParse(value, NumberStyles.Number, NumberFormatInfo.InvariantInfo, out outValue))
             {
                 return outValue;
             }
